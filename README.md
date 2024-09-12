@@ -15,7 +15,8 @@
 5. **FormState.save() and FormState.validate()**
 
 Progress:
-
-<img src="https://github.com/user-attachments/assets/8b98a4bf-b2d0-47ac-9ec7-b2c7c1f0677e" alt="progress-image-1" width=300 />
+<br>
+<br>
+<img src="https://github.com/user-attachments/assets/8b98a4bf-b2d0-47ac-9ec7-b2c7c1f0677e" alt="progress-image-1" width=300 /><br>
 
 <img src="https://github.com/user-attachments/assets/3cbcf2e1-7305-4fa0-b282-e1c64eb5fd00" alt="progress-image-2" width=300 />
