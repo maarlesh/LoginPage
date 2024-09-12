@@ -7,11 +7,15 @@ class LoginScreen extends StatefulWidget{
   }
 }
 class LoginScreenState extends State<LoginScreen>{
+  final formKey = GlobalKey<FormState>();
+  String? email = '';
+  String? password = '';
   @override
   Widget build(context){
     return Container(
       margin: const EdgeInsets.all(20.0),
       child: Form(
+        key: formKey,
         child: Column(
           children: [
             emailField(),
@@ -31,7 +35,19 @@ class LoginScreenState extends State<LoginScreen>{
       decoration : const InputDecoration(
         labelText: "Email",
         hintText: "yourname14@gmail.com",
-      )
+      ),
+      validator: (String? email) {//callback function
+        if(email == null || email.isEmpty){
+          return 'Please enter an email';
+        }
+        else if(!email.contains('@') || !email.contains('.com')){
+          return 'Please enter a valid email';
+        }
+        return null;
+      },
+      onSaved: (String? email){
+        this.email = email;
+      },
     );
   }
   Widget passwordField(){
@@ -39,13 +55,27 @@ class LoginScreenState extends State<LoginScreen>{
       decoration : const InputDecoration(
         labelText: "Password",
         hintText:"Password"
-      )
+      ),
+      validator: (String? password) {
+        if (password == null || password.isEmpty) {
+          return 'Please enter the password';
+        } else if (password.length < 4) {
+          return 'Please enter a valid password';
+        }
+        return null;  // Return null if the email is valid
+      },
+      onSaved: (String? password){
+        this.password = password;
+      },
      );
   }
   Widget submitButton(){
      return ElevatedButton(
       onPressed: (){
-
+        if(formKey.currentState?.validate() == true){
+          formKey.currentState?.save();
+          print('Email:$email, Password:$password');
+        }
       }, 
       style: const ButtonStyle(
         shadowColor: WidgetStatePropertyAll(Color.fromARGB(255, 41, 1, 105)),
