@@ -14,6 +14,8 @@
 
 5. **FormState.save() and FormState.validate()**
 
+6. **Mixin -> used for reusablity of code - implement with the keyword "with" in the required class**
+
 Progress:
 <br>
 <br>
